@@ -1,16 +1,19 @@
 {
-   "name": "express-mfs",
+   "name": "@dsw/express-mfs",
    "version": "1.0.0",
    "description": "Express middleware for services",
    "keywords": [
       "express",
       "framework",
-      "micro service",
+      "web service",
       "api"
    ],
    "author": "David Ward",
    "license": "MIT",
-   "repository": "git://github.com/<add info>",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/dsw6/express-mfs.git"
+   },
    "scripts": {
       "test": "mocha"
    },
