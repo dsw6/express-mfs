@@ -20,11 +20,10 @@ This package provides a set of middlewares to help in creating web services.  We
 ## Installation
 
 This is a [node.js](https://nodejs.org) module available through the
-[npm registry](https://www.npmjs.com/). Installation is done using the
-[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
+[npm registry](https://www.npmjs.com/). 
 
 ```sh
-$ npm install express-mfs
+$ npm install @dsw/express-mfs
 ```
 
 
@@ -487,21 +486,23 @@ present.
 
 The project contains multiple examples.  The examples can be found here:
 
-* Authentication: [https://github.com/xx/xx](https://github.com)
-  
-* JSON: [https://github.com/xx/xx](https://github.com)
-  
-* Schema: [https://github.com/xx/xx](https://github.com)
-  
-* Info: [https://github.com/xx/xx](https://github.com)
-  
-* Ping: [https://github.com/xx/xx](https://github.com)
-  
-* Unknown: [https://github.com/xx/xx](https://github.com)
-  
-* Error: [https://github.com/xx/xx](https://github.com)
+* [Authentication](https://github.com/dsw6/express-mfs/blob/master/examples/app_auth.js)
 
-* Metrics: [https://github.com/xx/xx](https://github.com)
+* [Authentication Roles](https://github.com/dsw6/express-mfs/blob/master/examples/app_auth_roles.js)
+
+* [JSON](https://github.com/dsw6/express-mfs/blob/master/examples/app_json.js)
+  
+* [Schema](https://github.com/dsw6/express-mfs/blob/master/examples/app_schema.js)
+  
+* [Info](https://github.com/dsw6/express-mfs/blob/master/examples/app_info.js)
+  
+* [Ping](https://github.com/dsw6/express-mfs/blob/master/examples/app_ping.js)
+  
+* [Unknown](https://github.com/dsw6/express-mfs/blob/master/examples/app_unknown.js)
+  
+* [Error](https://github.com/dsw6/express-mfs/blob/master/examples/app_error.js)
+
+* [Metrics](https://github.com/dsw6/express-mfs/blob/master/examples/app_metrics.js)
  
 
 ## Troubleshooting
