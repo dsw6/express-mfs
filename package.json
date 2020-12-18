@@ -1,0 +1,37 @@
+{
+   "name": "express-mfs",
+   "version": "1.0.0",
+   "description": "Express middleware for services",
+   "keywords": [
+      "express",
+      "framework",
+      "micro service",
+      "api"
+   ],
+   "author": "David Ward",
+   "license": "MIT",
+   "repository": "git://github.com/<add info>",
+   "scripts": {
+      "test": "mocha"
+   },
+   "main": "lib/index.js",
+   "dependencies": {
+      "debug": "^4.1.1"
+   },
+   "devDependencies": {
+      "@hapi/joi": "^17.1.1",
+      "body-parser": "^1.19.0",
+      "chai": "^4.2.0",
+      "express": "^4.17.1",
+      "mocha": "^8.0.1",
+      "node-mocks-http": "^1.8.1"
+   },
+   "engines": {
+      "node": ">= 0.10.0"
+   },
+   "files": [
+      "LICENSE",
+      "README.md",
+      "lib/"
+   ]
+}
