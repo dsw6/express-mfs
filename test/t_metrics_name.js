@@ -58,6 +58,15 @@ describe("Metrics Method Name MiddleWare", function ()
 
 
       //----------------------------------------------------------------------------
+   it(`create: if methodInfo enabled, method name should not fail`, function () 
+   {
+      mfs.metrics.init({methodInfo: function(){}});
+
+      mfs.metrics.name("testName");
+   });
+
+
+      //----------------------------------------------------------------------------
    it(`name: when methods enabled, names should be tracked`, function () 
    {
       var req = httpMocks.createRequest();
