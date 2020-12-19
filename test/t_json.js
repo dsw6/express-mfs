@@ -12,8 +12,8 @@ const httpMocks = require('node-mocks-http');
 const expect = require("chai").expect;
 const mfs = require("../lib");
 
-const INVALID_ACCEPT = "Invalid Accept Header";
-const INVALID_CONTENT = "Invalid Content-Type Header";
+const INVALID_ACCEPT = "express-mfs: invalid accept header";
+const INVALID_CONTENT = "express-mfs: invalid content-type header";
 
 
 describe("JSON MiddleWares", function () 
