@@ -43,24 +43,9 @@ describe("Metrics Method Name MiddleWare", function ()
 
 
       //----------------------------------------------------------------------------
-   it(`create: if method tracking is not enabled, method should fail`, function () 
+   it(`create: method tracking not enabled, method should not fail`, function () 
    {
       mfs.metrics.init({methods: false});
-
-      try { mfs.metrics.name("testName"); }
-      catch(err){
-         expect(err.message).to.contain("not enabled");
-         return;
-      }
-
-      throw(new Error("create function did not throw error"));
-   });
-
-
-      //----------------------------------------------------------------------------
-   it(`create: if methodInfo enabled, method name should not fail`, function () 
-   {
-      mfs.metrics.init({methodInfo: function(){}});
 
       mfs.metrics.name("testName");
    });
@@ -75,6 +60,53 @@ describe("Metrics Method Name MiddleWare", function ()
          // all metrics functionality must go through collect middleware which initializes
          // tracking information
       mfs.metrics.init({methods: true});
+      mfs.metrics.collect(req, res, function next(){});
+
+      var nameFunc = mfs.metrics.name("testName");
+
+      var ret = nameFunc(req, res, function next(err){
+         expect(err).to.be.undefined;
+         return(1);
+      });
+
+      expect(typeof(req.mfsMetrics)).to.equal("object");
+      expect(req.mfsMetrics.name).to.equal("testName");
+      expect(ret).to.equal(1);
+   });
+
+
+      //----------------------------------------------------------------------------
+   it(`name: when methods not enabled, names should not be tracked`, function () 
+   {
+      var req = httpMocks.createRequest();
+      var res = httpMocks.createResponse();
+
+         // all metrics functionality must go through collect middleware which initializes
+         // tracking information
+      mfs.metrics.init({methods: false});
+      mfs.metrics.collect(req, res, function next(){});
+
+      var nameFunc = mfs.metrics.name("testName");
+
+      var ret = nameFunc(req, res, function next(err){
+         expect(err).to.be.undefined;
+         return(1);
+      });
+
+      expect(req.mfsMetrics).to.not.exist;
+      expect(ret).to.equal(1);
+   });
+
+
+      //----------------------------------------------------------------------------
+   it(`name: when methodInfo function exists, names should be tracked`, function () 
+   {
+      var req = httpMocks.createRequest();
+      var res = httpMocks.createResponse();
+
+         // all metrics functionality must go through collect middleware which initializes
+         // tracking information
+      mfs.metrics.init({ methodInfo: function(){} });
       mfs.metrics.collect(req, res, function next(){});
 
       var nameFunc = mfs.metrics.name("testName");
