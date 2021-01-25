@@ -24,60 +24,56 @@ describe("Metrics Collection MiddleWare", function ()
 
       //----------------------------------------------------------------------------
    for (let code of successCodes)
+   it(`totals: (${code}) 200 level codes should be tracked as success`, function () 
    {
-      it(`totals: (${code}) 200 level codes should be tracked as success`, function () 
-      {
-         var req = httpMocks.createRequest();
-         var res = httpMocks.createResponse({eventEmitter: Emitter});
-         res.req = req;
-         res.statusCode = code;
+      var req = httpMocks.createRequest();
+      var res = httpMocks.createResponse({eventEmitter: Emitter});
+      res.req = req;
+      res.statusCode = code;
 
-         mfs.metrics.init({totals: true});
+      mfs.metrics.init({totals: true});
 
-         var ret = mfs.metrics.collect(req, res, function next(err){
-            expect(err).to.be.undefined;
-            return(1);
-         });
-
-         res.end();  // triggers the appropriate end events
-
-         var metrics = mfs.metrics.getMetrics();
-
-         expect(metrics.requests).to.exist;
-         expect(metrics.requests.total).to.equal(1);
-         expect(metrics.requests.success).to.equal(1);
-         expect(ret).to.equal(1);
+      var ret = mfs.metrics.collect(req, res, function next(err){
+         expect(err).to.be.undefined;
+         return(1);
       });
-   }
+
+      res.end();  // triggers the appropriate end events
+
+      var metrics = mfs.metrics.getMetrics();
+
+      expect(metrics.requests).to.exist;
+      expect(metrics.requests.total).to.equal(1);
+      expect(metrics.requests.success).to.equal(1);
+      expect(ret).to.equal(1);
+   });
 
 
       //----------------------------------------------------------------------------
    for (let code of failureCodes)
+   it(`totals: (${code}) non-200 level codes should be tracked as failure`, function () 
    {
-      it(`totals: (${code}) non-200 level codes should be tracked as failure`, function () 
-      {
-         var req = httpMocks.createRequest();
-         var res = httpMocks.createResponse({eventEmitter: Emitter});
-         res.req = req;
-         res.statusCode = code;
+      var req = httpMocks.createRequest();
+      var res = httpMocks.createResponse({eventEmitter: Emitter});
+      res.req = req;
+      res.statusCode = code;
 
-         mfs.metrics.init({totals: true});
+      mfs.metrics.init({totals: true});
 
-         var ret = mfs.metrics.collect(req, res, function next(err){
-            expect(err).to.be.undefined;
-            return(1);
-         });
-
-         res.end();  // triggers the appropriate end events
-
-         var metrics = mfs.metrics.getMetrics();
-
-         expect(metrics.requests).to.exist;
-         expect(metrics.requests.total).to.equal(1);
-         expect(metrics.requests.failure).to.equal(1);
-         expect(ret).to.equal(1);
+      var ret = mfs.metrics.collect(req, res, function next(err){
+         expect(err).to.be.undefined;
+         return(1);
       });
-   }
+
+      res.end();  // triggers the appropriate end events
+
+      var metrics = mfs.metrics.getMetrics();
+
+      expect(metrics.requests).to.exist;
+      expect(metrics.requests.total).to.equal(1);
+      expect(metrics.requests.failure).to.equal(1);
+      expect(ret).to.equal(1);
+   });
 
       //----------------------------------------------------------------------------
    it(`totals: count should increase with each call`, function () 

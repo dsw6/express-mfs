@@ -160,6 +160,7 @@ app.use(mfs.json.only);
    
 app.use(metrics.collect);
 
+   // set the name using the name middleware
 app.get("/metrics/route1", metrics.name("route1"), function(req, res){
    res.json({  
          msg: `hello from ${req.originalUrl}`
@@ -167,7 +168,9 @@ app.get("/metrics/route1", metrics.name("route1"), function(req, res){
 });
 
 
-app.get("/metrics/route2", metrics.name("route2"), function(req, res){
+   // set the name inside of a middleware function
+app.get("/metrics/route2", function(req, res){
+   metrics.setName(req, "route2");
    res.json({  
          msg: `hello from ${req.originalUrl}`
    });

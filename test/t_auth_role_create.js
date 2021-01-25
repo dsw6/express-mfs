@@ -29,7 +29,7 @@ describe("Auth Role MiddleWare", function ()
       
       try { auth.createRV(validRoles); }
       catch(err) {
-         throw(new Error("valid roles threw error"));
+         expect.fail("valid roles threw error");
       }
    });
 
@@ -47,7 +47,7 @@ describe("Auth Role MiddleWare", function ()
       
       try { auth.createRV(validRoles); }
       catch(err) {
-         throw(new Error("valid roles threw error"));
+         expect.fail("valid roles threw error");
       }
    });
 
@@ -63,13 +63,13 @@ describe("Auth Role MiddleWare", function ()
 
       var validRoles = [];
       
-      try { auth.createRV(validRoles); }
+      try { 
+         auth.createRV(validRoles); 
+         expect.fail("createRV did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("createRV did not throw error"));
    });
 
 
@@ -84,13 +84,13 @@ describe("Auth Role MiddleWare", function ()
 
       var validRoles = ["uknownRole"];
       
-      try { auth.createRV(validRoles); }
+      try { 
+         auth.createRV(validRoles); 
+         expect.fail("createRV did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("createRV did not throw error"));
    });
 
 
@@ -105,13 +105,13 @@ describe("Auth Role MiddleWare", function ()
 
       var validRoles = "role1";
       
-      try { auth.createRV(validRoles); }
+      try { 
+         auth.createRV(validRoles); 
+         expect.fail("createRV did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("createRV did not throw error"));
    });
 
 
@@ -126,13 +126,13 @@ describe("Auth Role MiddleWare", function ()
 
       var validRoles = [1, 2];
       
-      try { auth.createRV(validRoles); }
+      try { 
+         auth.createRV(validRoles); 
+         expect.fail("createRV did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("createRV did not throw error"));
    });
 
 });

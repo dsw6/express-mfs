@@ -19,40 +19,39 @@ describe("Authentication MiddleWare", function ()
       //----------------------------------------------------------------------------
    it(`create: empty opts should thow an error`, function () 
    {
-      try { mfs.auth({}); }
+      try { 
+         mfs.auth({}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
-
    });
 
 
       //----------------------------------------------------------------------------
    it(`create: no opts should thow an error`, function () 
    {
-      try { mfs.auth(); }
+      try { 
+         mfs.auth(); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
       //----------------------------------------------------------------------------
    it(`create: non object opts should thow an error`, function () 
    {
-      try { mfs.auth(123); }
+      try { 
+         mfs.auth(123); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("create function did not throw error"));
    });
 
       //----------------------------------------------------------------------------
@@ -83,13 +82,13 @@ describe("Authentication MiddleWare", function ()
       var user1 = "abc";
       var users = [user1];
 
-      try { mfs.auth({users: users}); }
+      try { 
+         mfs.auth({users: users}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -100,13 +99,14 @@ describe("Authentication MiddleWare", function ()
       var user1 = {pwd: "adddd"};
       var users = [user1];
 
-      try { mfs.auth({users: users}); }
+      try { 
+         mfs.auth({users: users}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
 
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -117,13 +117,13 @@ describe("Authentication MiddleWare", function ()
       var user1 = {user: "myUser"};
       var users = [user1];
 
-      try { mfs.auth({users: users}); }
+      try { 
+         mfs.auth({users: users}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -136,7 +136,7 @@ describe("Authentication MiddleWare", function ()
 
       try { mfs.auth({users: users}); }
       catch(err){
-         throw(new Error("schema create function threw error"));
+         expect.fail("mfs.auth create function threw error");
       }
    });
 
@@ -150,7 +150,7 @@ describe("Authentication MiddleWare", function ()
 
       try { mfs.auth({users: users, roles: roles}); }
       catch(err){
-         throw(new Error("1 valid role threw error"));
+         expect.fail("1 valid role threw error");
       }
    });
 
@@ -164,7 +164,7 @@ describe("Authentication MiddleWare", function ()
 
       try { mfs.auth({users: users, roles: roles}); }
       catch(err){
-         throw(new Error("multiple valid roles threw error"));
+         expect.fail("multiple valid roles threw error");
       }
    });
 
@@ -177,13 +177,13 @@ describe("Authentication MiddleWare", function ()
       var users = [user1];
       var roles = "must be an array";
 
-      try { mfs.auth({users: users, roles:"must be array"}); }
+      try { 
+         mfs.auth({users: users, roles:"must be array"}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -195,13 +195,13 @@ describe("Authentication MiddleWare", function ()
       var users = [user1];
       var roles = [1, 2]; // must be a string
 
-      try { mfs.auth({users: users, roles: roles}); }
+      try { 
+         mfs.auth({users: users, roles: roles}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -222,13 +222,13 @@ describe("Authentication MiddleWare", function ()
       var roles = ["role1", "role2"];
       var users = [user1];
 
-      try { mfs.auth({users: users, roles: roles}); }
+      try { 
+         mfs.auth({users: users, roles: roles}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -272,13 +272,13 @@ describe("Authentication MiddleWare", function ()
       var roles = ["role1", "role2"];
       var users = [user1];
 
-      try { mfs.auth({users: users, roles: roles}); }
+      try { 
+         mfs.auth({users: users, roles: roles}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 
@@ -288,13 +288,13 @@ describe("Authentication MiddleWare", function ()
       var user1 = {user: "testUser", pwd: "abcd", roles: ["role1"]};
       var users = [user1];
 
-      try { mfs.auth({users: users}); }
+      try { 
+         mfs.auth({users: users}); 
+         expect.fail("mfs.auth create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 

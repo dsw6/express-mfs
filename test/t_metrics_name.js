@@ -22,7 +22,7 @@ describe("Metrics Method Name MiddleWare", function ()
 
       try { mfs.metrics.name("validName"); }
       catch(err){
-         throw(new Error("create function threw error"));
+         expect.fail("create function threw error");
       }
    });
 
@@ -32,13 +32,13 @@ describe("Metrics Method Name MiddleWare", function ()
    {
       mfs.metrics.init({methods: true});
 
-      try { mfs.metrics.name(123); }
+      try { 
+         mfs.metrics.name(123); 
+         expect.fail("create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("create function did not throw error"));
    });
 
 

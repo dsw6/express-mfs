@@ -21,7 +21,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -31,7 +31,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -39,13 +39,13 @@ describe("Metrics Initialization", function ()
       //----------------------------------------------------------------------------
    it(`init: non object opts should thow an error`, function () 
    {
-      try { mfs.metrics.init(123); }
+      try { 
+         mfs.metrics.init(123); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
@@ -54,7 +54,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({totals: true}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -64,7 +64,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({totals: false}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -72,13 +72,13 @@ describe("Metrics Initialization", function ()
       //----------------------------------------------------------------------------
    it(`init: opt.totals=123 should thow an error`, function () 
    {
-      try { mfs.metrics.init({totals: 123}); }
+      try { 
+         mfs.metrics.init({totals: 123}); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
@@ -87,7 +87,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({methods: true}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -97,7 +97,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({methods: false}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -105,13 +105,13 @@ describe("Metrics Initialization", function ()
       //----------------------------------------------------------------------------
    it(`init: opt.methods=123 should thow an error`, function () 
    {
-      try { mfs.metrics.init({methods: 123}); }
+      try { 
+         mfs.metrics.init({methods: 123}); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
@@ -120,7 +120,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({rps: true}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -130,7 +130,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({rps: false}); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -138,13 +138,13 @@ describe("Metrics Initialization", function ()
       //----------------------------------------------------------------------------
    it(`init: opt.rps=123 should thow an error`, function () 
    {
-      try { mfs.metrics.init({rps: 123}); }
+      try { 
+         mfs.metrics.init({rps: 123}); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
@@ -153,7 +153,7 @@ describe("Metrics Initialization", function ()
    {
       try { mfs.metrics.init({methodInfo: function (){} }); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -161,13 +161,13 @@ describe("Metrics Initialization", function ()
       //----------------------------------------------------------------------------
    it(`init: opt.timingFunc=non_function should thow an error`, function () 
    {
-      try { mfs.metrics.init({methodInfo: 123}); }
+      try { 
+         mfs.metrics.init({methodInfo: 123}); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
@@ -180,7 +180,7 @@ describe("Metrics Initialization", function ()
 
       try { mfs.metrics.init({extraInfo: infoFuncs }); }
       catch(err){
-         throw(new Error("init threw error"));
+         expect.fail("init threw error");
       }
    });
 
@@ -191,13 +191,13 @@ describe("Metrics Initialization", function ()
       var f1 = function () {};
       var infoFuncs = f1;
 
-      try { mfs.metrics.init({extraInfo: infoFuncs }); }
+      try { 
+         mfs.metrics.init({extraInfo: infoFuncs }); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
@@ -206,13 +206,13 @@ describe("Metrics Initialization", function ()
    {
       var infoFuncs = [1, 2];
 
-      try { mfs.metrics.init({extraInfo: infoFuncs }); }
+      try { 
+         mfs.metrics.init({extraInfo: infoFuncs }); 
+         expect.fail("init did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("init did not throw error"));
    });
 
 
