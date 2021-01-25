@@ -21,7 +21,7 @@ describe("Schema Validation MiddleWare", function ()
    {
       try { mfs.schema(); }
       catch(err){
-         throw(new Error("create threw error"));
+         expect.fail("create threw error");
       }
    });
 
@@ -31,7 +31,7 @@ describe("Schema Validation MiddleWare", function ()
    {
       try { mfs.schema({}); }
       catch(err){
-         throw(new Error("create threw error"));
+         expect.fail("create threw error");
       }
    });
 
@@ -39,13 +39,13 @@ describe("Schema Validation MiddleWare", function ()
       //----------------------------------------------------------------------------
    it(`create: non object should fail`, function () 
    {
-      try { mfs.schema(5.5); }
+      try { 
+         mfs.schema(5.5); 
+         expect.fail("schema create function did not throw error");
+      }
       catch(err){
          expect(err.message).to.contain("invalid parameter");
-         return;
       }
-
-      throw(new Error("schema create function did not throw error"));
    });
 
 });
