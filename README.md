@@ -407,6 +407,9 @@ This middleware configures the incoming request for metrics collection.  When co
 ### **<span style="color:blue">mfs.metrics.name(name)</span>**  
 Returns a middleware function that assigns a name to a route.  The assigned name is used in the method details report and passed to the registered method information function.  If a specific name isn't assigned to a route, the `req.originalUrl` property is used for a route name.  
 
+### **<span style="color:blue">mfs.metrics.setName(req, name)</span>**  
+Used to set a route name inside a middleware function.  The "req" parameter is the middleware "req" parameter.  This can be useful when the name depends on processing done inside of the middleware.
+
 ### **<span style="color:blue">mfs.metrics.info</span>**  
 Provides a metrics endpoint for the service. The middleware returns the data that has been collected for the service.
 
